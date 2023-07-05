@@ -1,0 +1,103 @@
+/* div{
+    width: 200px;
+    height: 300px;
+    border: 5;
+
+} */
+
+/* * {
+    color: red;
+
+} */
+
+/* li {
+    color: red;
+} */
+
+/* span {
+    background-color: red;
+} */
+
+/* .oran{
+    color: orange;
+    background-color: brown;
+}
+
+#oran{
+    color: darkblue;
+    background-color: aliceblue;
+} */
+
+span.oran{
+    color: red;
+}
+
+ul > .oran{
+    background-color: gray;
+}
+
+ul .oran {
+    font-weight: bold;
+}
+
+.oran + li {
+    font-size: 30px;
+}
+
+.oran ~ li {
+    background-color: gold;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active{
+    color: white;
+    background-color: black;
+}
+
+input:focus{
+    background-color: gray;
+}
+
+.fruits span:first-child{
+    color: red;
+}
+
+.fruits div:first-child{
+    color: blue;
+}
+
+.fruits h3:last-child{
+    text-decoration: overline;
+}
+
+.fruits p:last-child{
+    text-decoration: overline;
+}
+/* 바로 위는 적용 안됨 */
+
+.fruits *:not(span) {
+    background-color: aquamarine;
+}
+
+.box::before{
+    content: "택시";
+}
+
+.box::after{
+    content: "빨리";
+}
+
+input[disabled] {
+    background-color: black;
+}
+
+input[readonly] {
+    background-color: orange;
+}
+
+input[type="password"] {
+    color: red;
+}
