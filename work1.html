@@ -25,8 +25,26 @@
         </ul>
     </div>
     <hr/>
-    <p>총 구매 가격 : </p><span id="sum"></span>
 
-    <script src="work1_js.js"></script>    
+    <p>총 가격 : </p><span id="sum"></span><p>원</p>
+
+    <script>
+        function cPrice(){
+            let cbArray = document.getElementsByName('price');
+            let priceArray = new Array();
+            for(let i = 0; i < cbArray.length; i++){
+                if(cbArray[i].checked == true){
+                    let sId = cbArray[i].id.replace('ice', 'price');
+                    let pTag = document.getElementById(sId).innerText;
+                    priceArray.push(pTag);
+                }
+            }
+            let total = 0;
+            for(let i = 0; i < priceArray.length; i++){
+                total += parseInt(priceArray[i]);
+            }
+            document.getElementById('sum').innerText = total;
+        }
+    </script>    
 </body>
 </html>

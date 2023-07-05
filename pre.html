@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "checkbox" id = "cb1" name = "price" onclick = "calcPrice()"><span id = "price1">1000</span><br>
+    <input type = "checkbox" id = "cb2" name = "price" onclick = "calcPrice()"><span id = "price2">2200</span><br>
+    <input type = "checkbox" id = "cb3" name = "price" onclick = "calcPrice()"><span id = "price3">3300</span><br>
+    <span id = "result"></span>
+
+    <script>
+        function calcPrice(){
+            let cbArray = document.getElementsByName('price');
+            let priceArray = new Array();
+            for(let i = 0; i < cbArray.length; i++){
+                if(cbArray[i].checked == true){
+                    let spanId = cbArray[i].id.replace('cb', 'price');
+                    let priceTag = document.getElementById(spanId).innerText;
+                    priceArray.push(priceTag);
+                }
+            }
+            let total = 0;
+            for(let i = 0; i < priceArray.length; i++){
+                total += parseInt(priceArray[i]);
+            }
+            document.getElementById('result').innerText = total;
+        }
+    </script>
+</body>
+</html>
