@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            border: 1px dotted red;
+            background-color: navy;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <table border="1" cellspacing="0" cellpadding="5" width="700" height="100">
+        <tr>
+            <th colspan="4"><h2>설문 조사</h2></th>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text"></td>
+            <td>이메일</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>나이</td>
+            <td colspan="3">
+                <input type="radio" >10대
+                <input type="radio" >20대
+                <input type="radio" >30대
+                <input type="radio" >40대
+                <input type="radio" >50대
+                <input type="radio" >60대 이상
+            </td>
+        </tr>
+        <tr>
+            <td>원하는 강의</td>
+            <td colspan="3">
+                <input type="checkbox" > html
+                <input type="checkbox" > css
+                <input type="checkbox" > js
+            </td>
+        </tr>
+    </table>
+    <br>
+    <textarea cols="100" rows="20" placeholder="하고 싶은 말을 써주세요 :>"></textarea>
+    
+    <button>제출</button>
+</body>
+</html>
