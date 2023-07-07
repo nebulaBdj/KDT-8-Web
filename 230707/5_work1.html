@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        .i1{
+            /* background-color: violet;
+            position: relative;
+            left: 50px;
+            top: 30px; */
+            background-color: violet;
+            position: absolute;
+            right: 30px;
+            bottom: 80px;
+            z-index: 1;
+        }
+        .i2{
+            background-color: yellow;
+            position: absolute;
+            right: 30px;
+            bottom: 100px;
+        }
+        .i3{
+            top: 30px;
+            right: 30px;
+            background-color: skyblue;
+            position: fixed;
+            right: 100px;
+            top: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="width: 500px; height: 500px; position: relative; background-color: antiquewhite;" class="contain">
+        <div class="i1"></div>
+        <div class="i2"></div>
+        <div class="i3"></div>
+    </div>
+</body>
+</html>

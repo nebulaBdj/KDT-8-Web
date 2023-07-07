@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        div{
+            position: absolute;
+        }
+        .i1{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            z-index: 5;
+        }
+        .i2{
+            width: 100px;
+            height: 100px;
+            top: 30px;
+            left: 30px;
+            background-color: aqua;
+        }
+        .i3{
+            width: 100px;
+            height: 100px;
+            top: 60px;
+            left: 60px;
+            background-color: slateblue;
+            z-index: 3;
+            
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 500px; height: 500px; background-color: gold;" class="container">
+        <div class="i1"></div>
+        <div class="i2"></div>
+        <div class="i3"></div>
+    </div>
+</body>
+</html>
