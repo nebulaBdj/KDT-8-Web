@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        /* .ts{
+            width: 100px;
+            height: 100px;
+            background-color: burlywood;
+        }
+        img:hover{
+            transform: rotate(180deg);
+            backface-visibility: hidden;
+        } */
+        img{
+            margin: 200px 0;
+            width: 200px;
+            height: 200px;
+            transform: skew(0,30deg);
+            position: relative;
+            border: 3px solid red;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="ts"></div> -->
+    <img style="top: 100px; left: 70px; z-index: 3;" src="./en25.jpg" alt="">
+    <img style="z-index: 2;" src="./en27.jpg" alt="">
+    <img style="bottom: 100px; right: 70px; z-index: 1;" src="./en30.jpg" alt="">
+</body>
+</html>
