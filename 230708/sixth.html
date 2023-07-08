@@ -12,7 +12,7 @@
             transform: rotate(180deg);
             backface-visibility: hidden;
         } */
-        img{
+        /* img{
             margin: 200px 0;
             width: 200px;
             height: 200px;
@@ -20,12 +20,66 @@
             position: relative;
             border: 3px solid red;
         }
+
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            transition: width 2s ease 0.5s;
+            transition-property: width;
+            transition-duration: 1s;
+            transition-timing-function: ease;
+            transition-delay: 0.1s;
+        }
+        div:hover{
+            width: 700px;
+        } */    
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            position: relative;
+            animation-name: myania;
+            animation-duration: 1s;
+            animation-iteration-count: 3;
+            animation-timing-function: ease;
+            animation-delay: 1s;
+        }
+        @keyframes myania{
+            0%{
+                left: 0px;
+                top: 0px;
+            }
+            25%{
+                left: 100px;
+                top: 0px;
+            }
+            50%{
+                left: 200px;
+                top: 0px;
+            }
+            75%{
+                left: 300px;
+                top: 0px;
+            }
+            100%{
+                left: 400px;
+                top: 0px;
+            }
+
+        }
+
     </style>
 </head>
 <body>
-    <!-- <div class="ts"></div> -->
+    <div></div>
+    <!-- <div class="ts"></div>
     <img style="top: 100px; left: 70px; z-index: 3;" src="./en25.jpg" alt="">
     <img style="z-index: 2;" src="./en27.jpg" alt="">
-    <img style="bottom: 100px; right: 70px; z-index: 1;" src="./en30.jpg" alt="">
+    <img style="bottom: 100px; right: 70px; z-index: 1;" src="./en30.jpg" alt=""> -->
+
+    <script>
+        console.log('hello');
+    </script>
 </body>
 </html>
