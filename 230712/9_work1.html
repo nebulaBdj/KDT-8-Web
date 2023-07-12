@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr1 = [];
+
+        for(let i=1; i<101; i++){
+            arr1.push(i);
+        }
+        console.log("배열 : ",arr1);
+
+        let forRe = 0;
+        let forofRe = 0;
+        let forERe = 0;
+        for(let j=0; j<arr1.length; j++){
+            //console.log(arr1[j]);
+            forRe += arr1[j];
+        }
+        console.log("for문", forRe);
+
+        for(let n of arr1){
+            forofRe += n; 
+        }
+        console.log("for of문", forofRe);
+
+        arr1.forEach((n2) => {
+            forERe += n2;            
+        });
+        console.log("forEach문 ", forERe);
+
+    </script>
+</body>
+</html>

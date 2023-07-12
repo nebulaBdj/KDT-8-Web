@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = "Happy Day~!"
+
+        //문자열 길이 확인
+        console.log("length : ",str.length);
+
+        //문자열을 대문자와 소문자로 바꾸기'
+        console.log("toUpercase :",str.toUpperCase());
+        console.log("toUpercase :",str.toLowerCase());
+
+        //lndex 가져오기
+        console.log("index : ", str.indexOf("y"));//y가 몇번째 인덱스인지 숫자를 출력
+        console.log("index : ", str.lastIndexOf("y"));
+
+        //문자열 자르기
+        console.log("slice : ", str.slice(0,6));
+
+        //바꾸기 1. 처음 나오는 하나만 2. 전부
+        console.log("replace p > a :",str.replace("p","a"));
+        console.log("replace a > k :",str.replaceAll("a","k"));
+
+        //반복(repeat)
+        console.log("repeat : ", str.repeat(10));
+
+        //split 문자열을 내가 원하는 부분에서 자르고 그걸 리스트로 만들어준다. 기준으로 둔 것은 사라진다.
+        console.log("split : ",str.split(" "));
+        console.log("split : ",str.split("a"));
+
+        //trim 공백 제거 함수
+        console.log("trim 전: ",str);
+        console.log("trim : ",str.trim());//좌우 공백을 지워준다.
+
+        //배열 관련 메소드
+        let days = ["m","t","w","th","fr","sa","su"]
+
+        // 길이
+        console.log("length",days.length);
+
+        // 마지막 요소 추가 삭제
+        let pushResult = days.push("vaca");// : string | undefined 문자열 혹은 언디파인드를 반환하겠다.
+        console.log("push ",days);//여러개도 넣을 수 있다 ("z","a")
+        console.log("pushResult ", pushResult);
+        
+        //pop 마지막 위치의 요소를 추출해 반환해준다. (추출하기 때문에 리스트에서는 삭제)
+        let popResult = days.pop();
+        console.log("pop ",days);
+        console.log("popResult ",popResult)
+
+    
+        // 맨 앞 요소 추가 삭제
+        //언시프트 : 첫번째 위치에 원하는 만큼 요소를 추가하고 추가된 이후의 리스트 길이를 반환해주는 함수
+        let unshiftResult = days.unshift("r","e");
+        console.log("unshift ",days);
+        console.log("unshiftR ", unshiftResult);
+
+        // 시프트 첫번쨰 위치의 요소를 추출해 반환 리스트에서는 삭제
+        let shiftResult = days.shift();
+        console.log("shift ",days);
+        console.log("shiftR ", shiftResult);
+
+        // 인덱스 가져오기 indexOf(찾을요소,[검색을 시작할 인덱스])
+        console.log("indexOf t",days.indexOf("t"));//days.indexOf("t",3)이라고 되어 있으면 3번째까지는 넘기고 t를 찾는다.
+
+        //includues(찾을 요소, [검색을 시작할 인덱스]) 포함 유무: 요소를 찾고 그에 대한 결과를 참 거짓 타입으로 반환해준다. 
+        console.log("includes S ",days.includes("S"));
+
+        //reverse() : 반전시키는 함수
+        console.log("reverse ",days.reverse());
+
+        //join 연결해서 문자열로 가져오는 함수
+        console.log("join ",days.join());//아무것도 없으면 ,로 연결된다.
+        console.log("join ",days.join('$'));
+
+
+        console.log("-------------------------------------------------------------");
+        let str1 = "HollyDay";
+        let a = str1.split("");
+        console.log("a ",a);
+        
+        let b = a.reverse();
+        console.log("b ",b);
+
+        let c = b.join("");
+        console.log("c ",c);
+
+        //메소드 체이닝 한꺼번에 다 사용
+        console.log("한꺼번에 ", str1.split("").reverse().join(""));
+
+
+    </script>
+</body>
+</html>
