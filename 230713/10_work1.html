@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>값1: </span><input type="text" id="v1"><br>
+    <span>값2: </span><input type="text" id="v2"><br>
+    <span>연산자: </span><input type="text" id="y"><br>
+    <span>결과: </span><input type="text" id="re"><br>
+    <button onclick="star()" id="star">계산하기</button>
+    <button onclick="res()" id="res">초기화</button>
+
+    <script>
+        function star(){
+            let v1 = document.getElementById("v1");
+            let v2 = document.getElementById("v2");
+            let val1 = v1.value;
+            let val2 = v2.value;
+            // console.log(val1);
+            // console.log(val2);
+            let y = document.getElementById("y");
+            let yeon = y.value;
+            let res = 0;
+            if(yeon === '+'){
+                res = parseInt(val1) + parseInt(val2);
+            }else if(yeon === '-'){
+                res = parseInt(val1) - parseInt(val2);
+            }else if(yeon === '*'){
+                res = parseInt(val1) * parseInt(val2);
+            }else if(yeon === '/'){
+                res = parseInt(val1) / parseInt(val2);
+            }
+            let r = document.getElementById("re");
+            r.value = res;
+
+        }
+        function res(){
+            document.getElementById("v1").value = "";
+            document.getElementById("v2").value = "";
+            document.getElementById("y").value = "";
+            document.getElementById("re").value = "";
+
+        }
+    </script>
+</body>
+</html>

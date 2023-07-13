@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <div class="box" id="green">1</div>
+      previous 테스트
+      <div class="box" id="red">2</div>
+      next 테스트
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+    </div>
+    <button onclick="getParent()">getParent</button>
+    <button onclick="pSibling()">previousSibling</button>
+    <button onclick="pESibling()">previousElementSibling</button>
+    <button onclick="nSibling()">nextSibling</button>
+    <button onclick="nESibling()">nextElementSibling</button>
+    <script>
+      let container = document.getElementById("container");
+      let redDiv = document.getElementById("red");
+
+      function getParent() {
+        console.log(container.parentNode);
+        //선택한 요소의 부모 하나만 가져오는 것 중첩 사용 가능 container.parentNode.parentNode
+      }
+      function pSibling() {
+        console.log(redDiv.previousSibling);
+        //형제(같은 부모를 보곳있으면 형제이다.)요소 가져오기  
+        //텍스트와 주석까지 모두 node로 카운트해서 가져온다. 태그와 태그 사이에 무조건 존재하는 #text까지 가져온다.
+      }
+      function pESibling() {
+        console.log(redDiv.previousElementSibling);
+      //위에 태그를 가져올때 사용
+      }
+      function nSibling() {
+        console.log(redDiv.nextSibling);
+      }
+      function nESibling() {
+        console.log(redDiv.nextElementSibling);
+      }
+    </script>
+  </body>
+</html>

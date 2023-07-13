@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+    }
+    #green{
+        background-color: green;
+    }
+    #red{
+        background-color: red;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="box" id="green">1</div>
+        <div class="box" id="red">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>
+    <input type="text" name="name" id="name">
+    <a href="google.com" id="google">구글</a>
+
+
+    <script>
+        let div1 = document.getElementById("green");
+        console.log("div1", dov1);
+
+        //1. 태그 내부 내용을 변경
+        div1.innerHTML = "여기는 <strong>태그</strong>입니다.";//태그도 같이 적용하여 삽입 가능
+        div1.innerText = "여기는 태그입니다."// 문자열만 삽입
+        div1.textContent = "여기는 <strong>태그</strong>입니다.";
+        //웹페이지에 넣는 것은 상관이 없지만 콘솔로그로 가져올때 공백이 적용된다. innerText는 공백문자를 제거한다.
+
+        //2. 속성 변경
+        let google = document.getElementById("google");
+        console.log("google ; ", google);
+        console.log("google.href ",google.href);
+        google.href = "https://naver.com";
+        google.setAttribute("https://daum.com");//위랑 이 명령어 모두 주소를 바꿀때 사용
+        //setAttribute("속성","값")
+        google.style = "color:red border:1px solid black";
+        google.style.color = "red";
+
+        //3. class 변경
+        console.log("classlist :", google.classList);
+        google.classList.add("box");// 추가
+        google.classList.remove("box");// 제거
+        google.classList.contains("box");//있는지 없는지 확인후 트루 펄스 반환
+        google.classList.toggle("box");//웒는 클래스 이름이 있으면 제거 없으면 추가해줌
+
+
+
+
+    </script>
+
+    <button onclick="toggleClass()">toggle</button>
+    <style>
+        .d-none{
+            opacity: 0.5;
+        }
+    </style>
+    <script>
+        function toggleClass(){
+            //버튼 태그에 d-none 클래스를 버튼을 누를 때마다 추가 삭제 반복
+            let button = document.getElementsByTagName("button");
+            console.log("button :", button(0));
+            button[0].classList.add("d-none");
+
+            if (button[0].classList.contains["d-none"]){
+                button[0].classList.remove("d-none");
+            }else{
+                button[0].classList.add("d-none");
+            }//위와 같은 작업을 해주는 것이 button[0].classList.toggle("d-none");이다.
+
+        }
+    </script>
+</body>
+</html>

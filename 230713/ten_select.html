@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+    }
+    #green{
+        background-color: green;
+    }
+    #red{
+        background-color: red;
+    }
+</style>
+<body>
+    <div class="box" id="green">1</div>
+    <div class="box" id="red">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <input type="text" name="name" id="name">
+
+    <div id="abc">
+        Text
+        <div>div text</div>
+        <div>div text</div>
+    </div>
+
+
+    <script>
+        //요소선택
+        //1.getElementById
+        //아이디 선택값으로 요소를 선택해서 가져옴
+        //요소를 하나만 선택한다.
+        let dom1 = document.getElementById("green");
+        console.log(dom1);
+
+        //2. getElementsByClassName
+        //클래스 선택값으로 요소를 선택해서 가져옴
+        //html콜레션이라는 배열
+        let dom2 = document.getElementsByClassName("box");
+        console.log(dom2);
+
+        //3.getElementsByTagName
+        //태그 이름을 기준으로 하여 요소를 선택해서 가져온다.
+        let dom3 = document.getElementsByTagName("div");
+        console.log(dom3)
+
+        //4. getElementsByName
+        //이름 속성값으로 요소를 선택해서 가져온다.
+        //Node리스트 배열
+        let dom4 = document.getElementsByName("name");
+        console.log(dom4);
+
+        //5.querySelector
+        //선택자를 이용해서 특정 속성에 제약 없이 원하는 것을 선택자로 가져온다.
+        //css 선택자랑 동일하다.
+        // . 클래스 /# 아이디 /[name = ""] name과 타입속성/ 태그이름 tag 
+        let dom5 = document.querySelector("#red");
+        console.log(dom5);
+
+        //6.querySelectorAll
+        //쿼리셀렉터와 동일하지만 쿼리셀렉터는 요소 중에서 제일 처음 즉 제일 위에 있는 쵸소를 하나 가져오지만
+        //querySelectorAlldms n개를 가져올 수 있다.
+        //Node리스트 배열
+        let dom6 = document.querySelectorAll("div");
+        console.log(dom6);
+
+        //html콜렉션 vs node리스트
+        let abc = document.getElementById("abc");
+        let abcren = abc.children;
+        let abcNode = abc.childNodes;
+
+        console.log("abc ", abc);
+        console.log("abc.children ", abcren);//html콜렉션 요소노드만 포함(태그)
+        console.log("html콜렉션 ", abcren);
+        console.log("abc childNode ", abcNode);//노드리스트
+
+        //1. html콜렉션 객체는 <>요소 노드만 포함하고, 노드리스트 객체는 <> 요소 노드, 텍스트 노드 등을 모두 포함 
+        //2. html콜렉션 객체는 인덱스 방식과 namedItem 메소드 방식을 사용할 수 있다. 노드리스트는 객체는 인덱스로만 접근 가능
+        //3. html콜레션은 동적이고(새로운 요소를 추가했을때 추가된 요소도 가져올 수 있다.), 노드리스트는 정적이다.(못 가져옴)
+        //4. 
+        //HTMLCollection[] : 실제 배열이 아니며 배열과 유사한 객체이므로 forEach문 사용 불가
+        //NodeList[] : 실제 배열이므로 forEach문 사용 가능
+
+
+
+    </script>
+</body>
+</html>
