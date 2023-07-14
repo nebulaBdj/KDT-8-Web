@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        .div1{
+            background-color: red;
+        }
+        .div2{
+            background-color: yellow;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script>
+        function setValue(){
+            document.getElementById("input").value = "안ㄴ녕";
+            // $("#input").val
+            
+        }
+        function getValue(){
+            // let v = document.getElementById("input").value;
+            //위의 선언과 같은 효과
+            let val = $("#input").val();
+            alert(val);
+        }
+
+
+        function changeStyle(){
+            // let div = document.querySelector("div");
+            // div.style = "border: 10px solid black"
+            //$().css("속성",속성값)
+
+            $("div").css("border","10px solid black")
+        }
+        function changeT(){
+            // let div = document.querySelector("div");
+            // div.innerText = "제이쿼리 사용 전 클자 바꾸기"//내부에 태그를 줘도 글자로 나온다.
+            //$().text()
+            $("div").text("<b>제이쿼리 사용 후</b>")
+        }
+        function changeAttri(){
+
+        }
+        function changeHtml(){
+            // let div = document.querySelector("div");
+            // div.innerHTML = "제이쿼리 사용 전 클자 바꾸기"//내부에 태그를 줘도 글자로 나온다.
+            //$().html()
+            $("div").html("<b>제이쿼리 사용 후</b>")
+        }
+    </script>
+</head>
+
+<body>
+    <a href="naver.com">naver</a>
+    <input type="text" id="input">
+    <div class="div1"></div>
+    <div class="div2"></div>
+
+    <button onclick="setValue()">setValue</button>
+    <button onclick="getValue()">getValue</button>
+    <button onclick="changeStyle()">changeStyle</button>
+    <button onclick="changeT()">changeText</button>
+    <!-- innerText -->
+    <button onclick="changeAttri()">changeAttribute</button>
+    <!-- setAttribute -->
+    <button onclick="changeHtml()">changeHtml</button>
+    <!-- innerHTML -->
+</body>
+</html>

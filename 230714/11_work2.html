@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .css1 {
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+        }
+        .css2 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+        .css3 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+        .css4 {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+    <script>
+        let count = 0;
+        function change(){
+            //$().switchClass("클래스명1","클래스명2",[시간])
+            if(count%4 == 0){
+                $("div").switchClass("css1", "css2", 1000);
+            }else if(count%4 == 1){
+                $("div").switchClass("css2", "css3", 1000);
+            }else if(count%4 == 2){
+                $("div").switchClass("css3", "css4", 1000);
+            }else if(count%4 == 3){
+                $("div").switchClass("css4", "css1", 1000);
+            }
+            count += 1;       
+        }
+    </script>
+  </head>
+  <body>
+    <div onclick="change()"></div>
+  </body>
+</html>
