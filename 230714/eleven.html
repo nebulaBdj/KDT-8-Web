@@ -19,9 +19,8 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script>
         function setValue(){
-            document.getElementById("input").value = "안ㄴ녕";
-            // $("#input").val
-            
+            // document.getElementById("input").value = "안녕";
+            $("#input").val("안녕");
         }
         function getValue(){
             // let v = document.getElementById("input").value;
@@ -45,6 +44,11 @@
             $("div").text("<b>제이쿼리 사용 후</b>")
         }
         function changeAttri(){
+
+            // let input = document.querySelector("input");
+            // input.setAttribute("placehoder","내 이름");
+
+            $("#li").attr("style","color : red");
 
         }
         function changeHtml(){

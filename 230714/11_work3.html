@@ -108,7 +108,7 @@
         function dayday(){
             let text = $(".text").val();
             console.log(text);
-            $(".myday").append("\n" + text);
+            $(".myday").prepend("\n" + text);
             $(".myday").removeClass("myday");
         }
         // $("button").on("click",function(){
