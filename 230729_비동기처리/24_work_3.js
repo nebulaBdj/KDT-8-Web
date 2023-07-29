@@ -21,7 +21,7 @@ change("red").then(function(col){
     col = "green"; 
     return change(col);
 }).then(function(){
-    col = "blue"; 
+    col = "dark"; 
     return change(col);
 });
 
