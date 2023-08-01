@@ -1,0 +1,59 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //배열 구조 분해
+        let lists = ['apple','grape'];
+        //기존 방식
+        console.log(lists[0],lists[1]);
+        //구조 분해
+        [item1, item2] = lists;
+        console.log(item1, item2);
+        //교환 많이 사용하는 편은 아니다.
+        let x = 1, y = 2;
+        [x, y] = [y, x];
+        console.log(x, y);
+        
+        // [item1, item2, item = 'peach'] = lists;
+
+
+        //객체
+        const Person = {
+            //key:value
+            name: 'dj',
+            age: 222,
+            gender: 'm',
+            friends: ['alex','json'],
+            hello : function(){
+                console.log('hello');
+            },
+            'j-1':'Korea'
+        };
+        //객체 호출 방법과 수정 방법
+        console.log(Person.name);
+        Person.age = 234;
+        console.log(Person.age);
+        console.log(Person.friends[0]);
+        console.log(Person['name']);
+        console.log(Person['j-1']);//문자열 형태로 객체 내에서 선언된 키를 불러올 때 사용한다.
+        Person.city = 'Seoul';//city 키 추가
+        console.log(Person);
+        //객체 구조 할당
+        //예시 
+        const Persons = [{},{},{}];
+
+        //객체 구조 분해
+        const {name, city, gender, key1 = 'Hi'} = Person;
+        console.log(name, city, gender, key1);
+
+
+    </script>
+</body>
+</html>
