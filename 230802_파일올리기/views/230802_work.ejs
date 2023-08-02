@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h3>개인 정보</h3>
+    <form name="resister">
+        <label>아이디: </label><input type="text" name="id" id="id"><br/>
+        <span>비밀 번호: </span><input type="text" name="pass" id="pass"><br/>
+        <span>이름: </span><input type="text" name="name" id="name"><br/>
+        <span>나이: </span><input type="text" name="age" id="age"><br/>
+    </form>
+    <span>프로필 사진: </span><input type="file" name="dynamic-userfile" id="dynamic-file"/><br />
+    <button type="button" onclick="reset()">초기화</button>    
+    <button type="button" onclick="fileupload()">회원가입</button>
+    <br />
+    <div class="result"></div>
+    <script>
+        function reset() {
+            let id = document.getElementById('id');
+            let pass = document.getElementById('pass');
+            let name = document.getElementById('name');
+            let age = document.getElementById('age');
+            
+
+
+        }
+        const form = document.forms['resister'];
+        const resultBox = document.querySelector('.result');
+        function fileupload() {
+            const file = document.getElementById('dynamic-file');
+            console.log(file.files[0]);
+            const formData = new FormData();
+            formData.append('dynamic-userfile', file.files[0]);
+
+            const data ={
+                id: form.id.value,
+                pass: form.pass.value,
+                name: form.name.value,
+                age: form.age.value,
+            }
+
+            axios({
+                method: 'POST',
+                url: '/dynamicFile',
+                data: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }).then((res) => {
+                console.log('res', res);
+                resultBox.innerHTML = `<div><img src=${res.data.path}></div>`;
+            });
+
+            axios({
+                method:'POST',
+                // url: `/axios?name=${form.name.value}&gender=${form.gender.value}`,
+                url: '/axios',
+                data: data,
+            }).then(res => {
+                console.log("nee", res)
+            })
+
+            
+        }
+    </script>
+</body>
+</html>
