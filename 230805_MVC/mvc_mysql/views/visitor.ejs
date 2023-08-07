@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>방명록</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
         fieldset{
             margin-bottom: 20px;
@@ -13,9 +14,9 @@
   <body>
     <fieldset>
         <legend>방명록 등록</legend>
-        <input type="text" placeholder="사용자 이름"><br>
-        <input type="text" placeholder="방명록"><br>
-        <button type="button" onclick="write()">등록</button>
+        <input id="username" type="text" placeholder="사용자 이름"><br>
+        <input id="bang" type="text" placeholder="방명록"><br>
+        <button type="button" onclick="writes()">등록</button>
     </fieldset>
 
     <table border="1" cellspacing="0">
@@ -29,19 +30,78 @@
         </tr>
       </thead>
       <tbody>
-        <% for (let i=0;i<data.length; i++) { %>
+        <% for (let i=0;i< data.length; i++) { %>
         <tr id="tr_ <%= data[i].id %>">
-            <td><a href="/visitor/<%= data[i].id%>"><%= data[i].id %></a></td>
+            <td><a href="/visitorone/<%= data[i].id%>"><%= data[i].id %></a></td>
             <td><%= data[i].name %></td>
             <td><%= data[i].comment %></td>
-            <td><button type="button" onclick="edit()">수정</button></td>
-            <td><button type="button" onclick="delte()">삭제</button></td>
+            <td><button type="button" onclick="edit('<%= data[i].id%>')">수정</button></td>
+            <td><button type="button" onclick="deltela('<%= data[i].id%>')">삭제</button></td>
         </tr>
         <% } %>
       </tbody>
     </table>
     <a href="/">홈으로 돌아가기</a>
     <script>
+      function writes(){
+        let username = document.getElementById('username').value;
+        let bang = document.getElementById('bang').value;
+        let body = document.querySelector("tbody")
+        const data = {
+          name : username,
+          comment : bang,
+        }
+        console.log(data)
+        axios({
+          method : 'POST',
+          url : '/visitor/write',
+          data : data,
+        }).then((result)=>{
+        const html= `
+        <tr>
+          <td><a href="/visitorone/${result.data.id}">${result.data.id}</a></td>
+          <td>${result.data.name}</td>
+          <td>${result.data.comment}</td>
+          <td><button type="button" onclick="edit()">수정</button></td>
+          <td><button type="button" onclick="deltela(${result.data.id})">삭제</button></td>
+        </tr>
+        `
+        body.insertAdjacentHTML('beforeend', html)
+        // window.location.reload()
+        });
+      }
+
+      function deltela(id){
+        console.log(id)
+        const data = {
+          identity : id,
+        }
+        axios ({
+          method : "DELETE",
+          url : '/visitor/deltela',
+          data,
+        }).then((result) => {
+          window.location.reload();
+        });
+      }      
+
+      function edit(id){
+        let username = document.getElementById('username').value;
+        let bang = document.getElementById('bang').value;
+
+        const data = {
+          name : username,
+          comment : bang,
+          id : id,
+        }
+        axios({
+          method: "PATCH",
+          url : '/visitor/edit',
+          data,
+        }).then((result) => {
+          window.location.reload();
+        })
+      }
 
     </script>
   </body>

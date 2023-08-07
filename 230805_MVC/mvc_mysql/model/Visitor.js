@@ -29,4 +29,31 @@ const getVisitors = (cb) => {
     });
 };
 
-export { getVisitors };
+const writeVisitor = (name, comment, callback) => {
+    const sql2 = `INSERT INTO visitors (name, comment) values('${name}','${comment}')`
+    conn.query(sql2, (err, rows) => {
+        if(err) throw (err);
+        callback(rows);
+    })
+}
+
+const upVisitor = (name, comment, id, callback) => {
+    const sql3 = `UPDATE visitors SET name ='${name}', comment = '${comment}' WHERE id=${id}`;
+    conn.query(sql3, (err,rows) => {
+        if(err) throw (err);
+        callback(rows);
+    })
+    
+}
+
+const dVisitor = (id, callback) => {
+    const sql3 = `DELETE FROM visitors WHERE id=${id}`;
+    conn.query(sql3, (err,rows) => {
+        if(err) throw err;
+        callback(rows);
+    });
+    
+};
+
+
+export { getVisitors, writeVisitor, upVisitor, dVisitor };
