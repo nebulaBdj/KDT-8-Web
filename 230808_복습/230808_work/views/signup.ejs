@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>회원가입</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <form name="resister">
+            <label for="name">이름</label>
+            <input type="text" name="name" id="name">
+            <br/>
+            <label for="id_signup">아이디</label>
+            <input type="text" name="id_signup" id="id_signup">
+            <br/>
+            <label for="pw_signup">패스워드</label>
+            <input type="text" name="pw_signup" id="pw_signup">
+            <br/>
+            <button type="button" onclick="signupGet()" >회원가입</button>
+        </form>
+        
+        <script>
+            // function signupGet() {
+            //     const form = document.forms['resister'];
+            //     axios({
+            //         method: 'POST',
+            //         url: '/user/signup',
+            //         data: {
+            //             userid : form.id_signup.value,
+            //             pw : form.pw_signup.value,
+            //             name : form.name.value,
+            //         }
+            //     }).then((res)=>{
+            //         console.log('res',res);
+            //         if(res.result){
+            //             alert('회원가입을 축하합니다.');
+            //             // window.location =
+            //         }
+            //     })
+
+                // let myname = document.getElementById('name').value;
+                // let myid = document.getElementById('id_signup').value;
+                // let mypw = document.getElementById('pw_signup').value;
+
+                // const data = {
+                //     userid : myid,
+                //     name : myname,
+                //     pw : mypw,
+                // };
+
+                // axios({
+                //     method : 'POST',
+                //     url : '/user/signup',
+                //     data,
+                // }).then((result) => {
+                //     alert('회원가입이 완료되었습니다.')
+                // })
+
+            // }
+        </script>
+    </body>
+</html>

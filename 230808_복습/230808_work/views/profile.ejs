@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로필</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <form>
+        <p>로그인 정보</p>
+        <span>아이디: </span><input id="userid" type="text"><br/>
+        <span>패스워드: </span><input id="userpw" type="text"><br/>
+        <span>이름: </span><input id="username" type="text"><br/>
+        <button type="button" id="edit" onclick="edit()">회원가입 정보 수정</button><br/>
+        <button type="button" id="exit" onclick="exit()">회원가입 탈퇴</button>
+    </form>
+    <script>
+        let userid = document.getElementById('userid').value;
+        let userpw = document.getElementById('userpw').value;
+        let username = document.getElementById('username').value;
+        // userid = data.userid;
+        // userpw = data.pw;
+        // username = data.name;
+        
+
+        const list = {
+            userid : userid,
+            name : username,
+            pw : userpw,
+        }
+
+        axios({
+            method : 'GET',
+            url : '/user/profile',
+            data : list,
+        }).then((infor) => {
+            // document.getElementById('userid').value = infor.data.userid;
+            // document.getElementById('username').value = infor.data.name;
+            // document.getElementById('userpw').value =  infor.data.pw;
+            console.log(infor.data.pw);//왜 못불러오지;;
+        });
+    </script>
+</body>
+</html>
