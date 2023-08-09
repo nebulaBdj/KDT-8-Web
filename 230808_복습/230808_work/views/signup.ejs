@@ -7,20 +7,43 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     <body>
-        <form name="resister">
+        <form name="form_resister">
             <label for="name">이름</label>
-            <input type="text" name="name" id="name">
-            <br/>
-            <label for="id_signup">아이디</label>
-            <input type="text" name="id_signup" id="id_signup">
-            <br/>
-            <label for="pw_signup">패스워드</label>
-            <input type="text" name="pw_signup" id="pw_signup">
-            <br/>
-            <button type="button" onclick="signupGet()" >회원가입</button>
+            <input type="text" name="name" id="name"><br/>
+            <label for="idSignup">아이디</label>
+            <input type="text" name="idSignup" id="idSignup"><br/>
+            <label for="pwSignup">패스워드</label>
+            <input type="text" name="pwSignup" id="pwSignup"><br/>
+            <button type="button" onclick="signup()" >회원가입</button>
         </form>
-        
         <script>
+
+            function signup(){
+                const form = document.forms['form_resister'];
+                console.log(form.idSignup.value);
+                console.log(form.pwSignup.value);
+                console.log(form.name.value);
+                
+                axios({
+                    method: 'POST',
+                    url : '/user/signup',
+                    data : {
+                        userid : form.idSignup.value,
+                        pw : form.pwSignup.value,
+                        name : form.name.value,
+                    }
+                }).then((res) => {
+                    console.log('res',res);
+                    
+                    if (res.data.result) {
+                        alert('회원가입을 축하합니다');
+                        window.location.href = '/user/signin';
+                    }
+
+                });
+
+
+            }
             // function signupGet() {
             //     const form = document.forms['resister'];
             //     axios({
@@ -61,3 +84,4 @@
         </script>
     </body>
 </html>
+

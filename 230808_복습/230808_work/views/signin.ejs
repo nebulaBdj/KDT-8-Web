@@ -4,16 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <form>
+    <form name="resister_signin">
         <fieldset>
             <legend>로그인</legend>
-            <input type="text" name="id" id="id" value="id">
             <label for="id">아이디</label>
-            <input type="text" name="pw" id="pw" value="pw">
+            <input type="text" name="idSignin" id="idSignin">
             <label for="pw">패스워드</label>
+            <input type="text" name="pwSignin" id="pwSignin">
+            
+            <button type="button" onclick="login()">로그인</button>
         </fieldset>
     </form>
+
+    <form action="/user/profile" method="post" name="profile_form">
+        <input type="hidden" name="profile">
+    </form>
+
+    <script>
+        function login(){
+            const form = document.forms['resister_signin'];
+            console.log(form.idSignin.value);
+            axios({
+                method : 'POST',
+                url : '/user/signin',
+                data : {
+                    userid : form.idSignin.value,
+                    pw : form.pwSignin.value,
+                }
+            }).then((res) => {
+                console.log('res', res);
+                if(res.data.result){
+                    alert('로그인 성공!');
+                    const formP = document.forms['profile_form'];
+                    formP.profile.value = form.idSignin.value;
+                    formP.submit();
+                }else{
+                    alert('로그인 실패');
+                    form.reset();
+                }
+            });    
+        }
+    </script>
+
 </body>
 </html>
