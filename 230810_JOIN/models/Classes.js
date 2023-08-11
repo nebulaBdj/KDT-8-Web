@@ -4,13 +4,13 @@ const { sequelize } = require(".");
 
 const classModel =(sequelize) => {
     const Classes = sequelize.define(
-        'classes',
+        'Classes',
         {
             id: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 primaryKey: true,
-                autoIncreament: true,
+                autoIncrement: true,
             },
             name: {
                 type: DataTypes.STRING(31),

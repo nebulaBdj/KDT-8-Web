@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+    <form>
+                <!-- Button trigger modal -->
+                <button id="warnB" onclick="open()" style="position: relative; left: 50px; top: 30px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    경고
+                </button>
+              
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">안내</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        인터넷익스플로러 지원 종료 안내
+                        </div>
+                        <div class="modal-footer" style="display: flex; justify-content: space-between;">
+                            <div><input type="checkbox" id="done"><span>오늘은 그만 보기</span></div>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="warn()">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+    </form>
+       
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+        <script>
+
+            function warn(){
+                const hdata = {};
+                
+                if ($("#done").is(':checked')){
+                    hdata = { check : true };
+                }
+
+                axios({
+                    method : 'POST',
+                    url : '/setCookie',
+                    data : hdata,
+                })
+
+            }
+
+            function open(){}
+
+
+        </script>
+        
+
+  </body>
+</html>
