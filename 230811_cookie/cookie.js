@@ -36,17 +36,25 @@ const cookieConfig = {
 }
 
 app.get('/', (req, res) => {
-    res.render("work12");
+    console.log(req.cookies);
+    res.render("work12", {popup: req.cookies.modal});//그냥 req.cookies는 객체로만 받기 때문에 뒤에 .modal도 붙여준다.
 });
 
+app.post('/setCookie', (req, res) => {
+    res.cookie('modal', 'hide', cookieConfig);
+    res.send({result : true , msg : '쿠키 생성 완료'});
 
-
-app.get('/setCookie', (req, res) => {
-    
-    //쿠키이름 쿠키 값 옵션
-    res.cookie('myCookie', 'myVal', cookieConfig);
-    res.send('/');
+    // res.clearCookie('connect.sid', 's:x_w53r2tuFTEVx1UattwEApR0rlRKobB.aik9WFNjqQZWRbvb06pwy4tMtamo7PEsel1m+UVVZJU', cookieConfig);
+    // res.send('clear cookie')
 })
+
+
+// app.get('/setCookie', (req, res) => {
+    
+//     //쿠키이름 쿠키 값 옵션
+//     res.cookie('myCookie', 'myVal', cookieConfig);
+//     res.send('/');
+// })
 
 // app.get('/checkCookie', (req, res) => {
 //     //쿠키이름 쿠키 값 옵션

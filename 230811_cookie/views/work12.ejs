@@ -11,9 +11,9 @@
   <body>
     <form>
                 <!-- Button trigger modal -->
-                <button id="warnB" onclick="open()" style="position: relative; left: 50px; top: 30px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <!-- <button id="warnB" onclick="open()" style="position: relative; left: 50px; top: 30px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     경고
-                </button>
+                </button> -->
               
                 <!-- Modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -39,18 +39,27 @@
 
         <script>
 
+            const modal = new bootstrap.Modal('#staticBackdrop');
+            console.log('<%= popup%>')
+            if('<%= popup%>' === ''){
+                modal.show();
+            }
+
             function warn(){
                 const hdata = {};
                 
                 if ($("#done").is(':checked')){
-                    hdata = { check : true };
-                }
-
-                axios({
+                    console.log('체크됨');
+                    axios({
                     method : 'POST',
                     url : '/setCookie',
-                    data : hdata,
-                })
+                    }).then((res) => {
+                        console.log('res',res.data);
+                    })
+                    // hdata = { check : true };
+                }
+
+                
 
             }
 
