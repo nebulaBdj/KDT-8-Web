@@ -40,7 +40,7 @@ app.post('/token', (req, res) => {
         try {
             const result = jwt.verify(token[1], SECRET);
             if(result.id === userinfo.id){
-
+                res.json({ result: true, name: userinfo.name});
             }   ////여기서부터 다시         
         } catch (error) {
             console.log(error);
