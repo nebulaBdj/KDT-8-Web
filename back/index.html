@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function(){
+            localStorage.setItem('id', 'kdt');//(키, 데이터)
+            const local = localStorage.getItem('id');
+            console.log(local);
+            localStorage.clear()//모두 삭제
+            
+        })();//괄호 안에 함수가 있는 형태가 먼저 실행하는 것이라고 한다.
+    </script>
+</body>
+</html>

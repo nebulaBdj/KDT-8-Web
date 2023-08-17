@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>로그인</h1>
+    <form name="login">
+        <input type="text" id="id" placeholder="id"><br>
+        <input type="password" id="pw" placeholder="pw"><br>
+        <button type="button" onclick="loginB()">로그인</button>
+    </form>
+
+    <script>
+        async function loginB() {
+            console.log('login');
+            const form = document.forms['login'];
+            const res = await axios({
+                method : "POST",
+                url : '/login',
+                data : {
+                    id: form.id.value,
+                    pw: form.pw.value,
+                },
+            });
+            if( res.data.result ) {
+                localStorage.setItem('login', res.data.token);
+                document.location.href = '/'//이거 쓰면 된다!!
+                
+            } else {
+                alert(res.data.message);
+                document.location.reload();
+            }
+        }
+    </script>
+</body>
+</html>

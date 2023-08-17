@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <form name="resis">
+        <fieldset>
+            <legend>로그인</legend>
+
+            <label for="id">아이디: </label>
+            <input type="text" name="id" id="id">
+            <label for="pw">패스워드: </label>
+            <input type="text" name="pw" id="pw">
+            <button type="button" onclick="login()">로그인</button>
+        </fieldset>
+    </form>
+    <script>
+        function login() {
+            const form = document.forms['resis'];
+            console.log(form.id.value)
+            console.log(form.pw.value)
+
+            const data ={
+                id : form.id.value,
+                pw : form.pw.value,
+            }
+
+            console.log(data)
+
+            axios({
+                method: 'POST',
+                url: '/worklogin',
+                data,
+            })
+            .then((res)=>{
+                console.log(res);
+                console.log(res.data.result);
+                console.log(res.data.token);
+
+
+
+                axios({
+                    method: 'POST',
+                    url: '/workpage',
+                    data: {
+                        result:res.data.result,
+                        id:res.data.id,
+                        pw:res.data.pw,
+                    },
+                    headers: {
+                        Authorization : `Bearer ${res.data.token}`
+                    }
+                })
+            })
+        }
+
+    </script>
+</body>
+</html>
