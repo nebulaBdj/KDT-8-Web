@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = 8080;
+require('dotenv').config();
 let hash = '';
 
 //ejs
@@ -11,7 +12,8 @@ app.use(express.json());
 
 //router
 app.get('/', (req, res) => {
-
+    console.log(process.env.NAME);
+    console.log(process.env.NODE_ENV);
     res.render('index');
 });
 
