@@ -12,17 +12,17 @@ app.use(express.json());
 
 //router
 app.get('/', (req, res) => {
-    console.log(process.env.NAME);
-    console.log(process.env.NODE_ENV);
+    // console.log(process.env.NAME);
+    // console.log(process.env.NODE_ENV);
     res.render('index');
 });
 
 
 app.post('/hash', (req, res)=>{
     const {pw} = req.body;
-    // const hash = creatHashedPassword(pw);
+    const hash = creatHashedPassword(pw);
     // hash = createPbkdf(pw);
-    hash = bcryptPassword(pw);
+    // hash = bcryptPassword(pw);
     res.json({ hash });
 });
 
