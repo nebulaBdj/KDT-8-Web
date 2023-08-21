@@ -108,11 +108,16 @@
                     name: form.name.value,
                     gender: form.gender.value,
                 };
-                const result = await axios({
+                try {
+                    const result = await axios({
                     method: 'POST',
                     url: '/axios',
                     data,
-                });
+                });                    
+                } catch (error) {
+                    console.log(error);
+                }
+
                 resultBox.textContent = `POST /axios 요청 완료! ${result.data.name}님은 ${result.data.gender}이시죠?`;
                 resultBox.style.color = 'purple';
                 //console.log(result);
@@ -137,6 +142,7 @@
                     });
             }
             function fetchPost() {
+
                 console.log('fetch post');
                 const form = document.forms['register'];
                 const data = {
@@ -149,19 +155,21 @@
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(data),
-                    //JSON.stringify(): 자바스크립트 객체를 JSON텍스트로 변환
-                    //JSON.parse(): JSON형식의 텍스트를 자바스크립트 객체로 변환
+                    // ★ JSON.stringify(): 자바스크립트 객체를 JSON텍스트로 변환 변환해야 백엔드에서 받을 수 있다.
+                    // ★ JSON.parse(): JSON형식의 텍스트를 자바스크립트 객체로 변환 스트링 형태로 된 것을 다시 객체형태로 바꿈
+
+
                 })
                     .then((res) => {
                         console.log('res', res);
-                        return res.json();
+                        return res.json();//다음 then으로 넘겨주기 위해 return을 사용한다.
                     })
                     .then((data) => {
                         console.log('data', data);
                         resultBox.textContent = `POST /fetch 요청완료! ${data.name}님은 ${data.gender}이시죠?`;
                         resultBox.style.color = 'hotpink';
-                    });
-            }
+                    }).catch(err => {});
+            }//then의 오류는 catch로 받으면 된다
         </script>
     </body>
 </html>
