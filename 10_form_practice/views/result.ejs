@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>회원정보</h1>
+        <ul id="table">
+        </ul>
+    </body>
+
+    <script>
+        const tableBox = document.getElementById('table');
+        if('<%= title %>' === 'post요청 결과 확인'){
+            console.log(`<%= info.color%>`);
+            tableBox.innerHTML = 
+            `
+            <li>정보 요청 방식 : <%= title%></li>
+            <li>이름 : <%= info.username%></li>
+            <li>아이디 : <%= info.id%></li>
+            <li>이메일 : <%= info.email%></li>
+            <li>성별 : <%= info.gender%></li>
+            <li>생년월일 : <%= info.birthYear%>년<%= info.birthMonth%>월<%= info.birthDay%>일</li>
+            <li>취미 : <%= info.hobby%></li>
+            <li>좋아하는 색깔 : <%= info.color%></li>
+            <li>좋아하는 숫자 : <%= info.number%></li>
+            `
+        } else {
+            tableBox.innerHTML =
+            `
+            <li>정보 요청 방식 : <%= title%></li>
+            <li>이름 : <%= info.username%></li>
+            <li>성별 : <%= info.gender%></li>
+            <li>생년월일 : <%= info.birthYear%>년<%= info.birthMonth%>월<%= info.birthDay%>일</li>
+            <li>취미 : <%= info.hobby%></li>
+            `
+        }
+    </script>
+</html>
