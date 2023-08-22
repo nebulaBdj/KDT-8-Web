@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+  <h1>나의 todo list</h1>
+  <p>1. 오늘 저녁에는 부대찌게를 끓여 먹겠다.<button type="button">삭제</button></p>
+  <p>2. 후식으로 슈팅스타를 먹겠다.<button type="button">삭제</button></p>
+  <p>3. 자기 전에 반드시 내일 아침 메뉴를 생각해두겠다.<button type="button">삭제</button></p>
+
+  <script>
+
+    // 1. P 태그를 클릭하면 p 태그의 컨텐츠를 출력하는 alert 창을 띄워주고
+    // 2. 삭제 버튼을 클릭하면 삭제할 것인지를 물어보는 confirm 창을 띄워주고, 확인을 누르면 P태그를 삭제합니다.
+    
+    // p태그를 선택하여 클릭 이벤트를 붙여줍니다.
+
+    let ptag = document.querySelectorAll('p');
+    // console.log(ptag);
+
+    ptag[0].addEventListener('click', () => {
+        console.log(ptag[0]);
+        alert(ptag[0].textContent);
+    })
+
+    ptag[1].addEventListener('click', () => {
+        console.log(ptag[1]);
+        alert(ptag[1].textContent);
+    })
+
+    ptag[2].addEventListener('click', () => {
+        console.log(ptag[2]);
+        alert(ptag[2].textContent);
+    })
+
+
+    // btn 태그를 선택하여 클릭 이벤트를 붙여줍니다.
+
+    let btn = document.querySelectorAll('button');
+    console.log(btn[0],btn[1],btn[2]);
+
+    btn[0].addEventListener('click', () => {
+        if (confirm("정말 삭제하시겠습니까?")) {
+            ptag[0].innerHTML = '';
+        } else {
+            txt = '삭제 취소';
+        }
+    })
+
+    btn[1].addEventListener('click', () => {
+        if (confirm("정말 삭제하시겠습니까?")) {
+            ptag[1].innerHTML = '';
+        } else {
+            txt = '삭제 취소';
+        }
+    })
+
+    btn[2].addEventListener('click', () => {
+        if (confirm("정말 삭제하시겠습니까?")) {
+            ptag[2].innerHTML = '';
+        } else {
+            txt = '삭제 취소';
+        }
+    })
+    
+    
+    // html 건들여도 되는 줄 알고 착각한 코드 ▽
+    // let p1 = document.querySelector('#p1');
+    // let p2 = document.querySelector('#p2');
+    // let p3 = document.querySelector('#p3');
+    
+
+
+    // function ptag() {
+
+    //     // console.log(p1, p2, p3);
+    //     // console.log(p1.textContent);
+    //     if(p1) {
+    //         alert(p1.textContent);
+    //     } else if (p2){
+    //         alert(p2.textContent);
+    //     } else if (p3){
+    //         alert(p3.textContent);
+    //     }
+    // }
+  
+    
+
+
+  
+  </script>
+</body>
+</html>
