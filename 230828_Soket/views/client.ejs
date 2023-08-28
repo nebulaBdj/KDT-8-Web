@@ -51,6 +51,12 @@
             const name = chatF.querySelector('#name');
             const data = `${name.value} : ${msg.value}`
             socket.send(data);
+
+            // 객체로 보낼때 문자열로 바꾸어 주어야한다.
+            // socket.send(JSON.stringify({name: name.value, msg: msg.value}));
+
+
+
         })
     </script>
 </body>
