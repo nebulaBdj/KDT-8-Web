@@ -9,8 +9,34 @@
 <body>
   <h1>나의 todo list</h1>
   <p>1. 오늘 저녁에는 부대찌게를 끓여 먹겠다.<button type="button">삭제</button></p>
-  <p>2. 후식으로 슈팅스타를 먹겠다.<button type="button">삭제</button></p>
+  <p>2. 후식으로 민트초코를 먹겠다.<button type="button">삭제</button></p>
   <p>3. 자기 전에 반드시 내일 아침 메뉴를 생각해두겠다.<button type="button">삭제</button></p>
+
+
+    <!-- <table border="1px">
+        <thead>
+            <tr>
+                <th>분식 메뉴</th>
+                <th>금액</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>떡볶이</td>
+                <td>4500</td>
+            </tr>
+            <tr>
+                <td>순대</td>
+                <td>4500</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>총 합계</td>
+                <td>9000</td>
+            </tr>
+        </tfoot>
+    </table> -->
 
   <script>
 
@@ -20,22 +46,33 @@
     // p태그를 선택하여 클릭 이벤트를 붙여줍니다.
 
     let ptag = document.querySelectorAll('p');
+    // let ptagStr = ptag.split('.');
+    
+
+    // console.log(ptagSt.textContent);
     // console.log(ptag);
 
-    ptag[0].addEventListener('click', () => {
-        console.log(ptag[0]);
-        alert(ptag[0].textContent);
-    })
+    for( let i=0; i < 3; i++ ) {
+        ptag[i].addEventListener('click', () => {
+        console.log(ptag[i]);
+        alert(ptag[i].textContent);
+        })
+    }
 
-    ptag[1].addEventListener('click', () => {
-        console.log(ptag[1]);
-        alert(ptag[1].textContent);
-    })
+    // ptag[0].addEventListener('click', () => {
+    //     console.log(ptag[0]);
+    //     alert(ptag[0].textContent);
+    // })
 
-    ptag[2].addEventListener('click', () => {
-        console.log(ptag[2]);
-        alert(ptag[2].textContent);
-    })
+    // ptag[1].addEventListener('click', () => {
+    //     console.log(ptag[1]);
+    //     alert(ptag[1].textContent);
+    // })
+
+    // ptag[2].addEventListener('click', () => {
+    //     console.log(ptag[2]);
+    //     alert(ptag[2].textContent);
+    // })
 
 
     // btn 태그를 선택하여 클릭 이벤트를 붙여줍니다.
@@ -43,29 +80,38 @@
     let btn = document.querySelectorAll('button');
     console.log(btn[0],btn[1],btn[2]);
 
-    btn[0].addEventListener('click', () => {
-        if (confirm("정말 삭제하시겠습니까?")) {
-            ptag[0].innerHTML = '';
-        } else {
-            txt = '삭제 취소';
-        }
-    })
+    for(let j=0; j < 3; j++ ){
+        
+        btn[j].addEventListener('click', () => {
+            if (confirm("정말 삭제하시겠습니까?")) {
+                ptag[j].innerText = "";
+            }
+        })        
+    }
 
-    btn[1].addEventListener('click', () => {
-        if (confirm("정말 삭제하시겠습니까?")) {
-            ptag[1].innerHTML = '';
-        } else {
-            txt = '삭제 취소';
-        }
-    })
+    // btn[0].addEventListener('click', () => {
+    //     if (confirm("정말 삭제하시겠습니까?")) {
+    //         ptag[0].innerHTML = '';
+    //     } else {
+    //         txt = '삭제 취소';
+    //     }
+    // })
 
-    btn[2].addEventListener('click', () => {
-        if (confirm("정말 삭제하시겠습니까?")) {
-            ptag[2].innerHTML = '';
-        } else {
-            txt = '삭제 취소';
-        }
-    })
+    // btn[1].addEventListener('click', () => {
+    //     if (confirm("정말 삭제하시겠습니까?")) {
+    //         ptag[1].innerHTML = '';
+    //     } else {
+    //         txt = '삭제 취소';
+    //     }
+    // })
+
+    // btn[2].addEventListener('click', () => {
+    //     if (confirm("정말 삭제하시겠습니까?")) {
+    //         ptag[2].innerHTML = '';
+    //     } else {
+    //         txt = '삭제 취소';
+    //     }
+    // })
     
     
     // html 건들여도 되는 줄 알고 착각한 코드 ▽
