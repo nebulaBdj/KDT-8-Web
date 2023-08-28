@@ -36,6 +36,7 @@ wss.on('connection', (socket) => {
         // socket.send(`서버메세지: ${message}`);
         sockets.forEach((elem)=>{// 모든 브라우저에 있는 메세지를 반복문으로 전부 다 넣는다
             elem.send(`${message}`);
+            // elem.send(`${msg.name}:${msg.msg}`);//이렇게 해서 보내준다.
         });
     });
 
