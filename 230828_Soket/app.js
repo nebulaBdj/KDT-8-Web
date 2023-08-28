@@ -30,6 +30,7 @@ wss.on('connection', (socket) => {
 
 
     socket.on("message", (message) => {//메세지가 생길떄마다
+        const msg = JSON.parse(message);// JSON.stringify로 보낸 것을 다시 바꾸어준다.
         console.log(`클라이언트로부터 받은 메세지: ${message}`);
         //클라이언트로 응답 메세지 전송
         // socket.send(`서버메세지: ${message}`);
