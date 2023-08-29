@@ -1,0 +1,131 @@
+<!-- ▼ 수업 실습 -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+
+    </ul>
+    <form id="chat">
+        <input type="text" id="user" placeholder="사용자명" />
+        <input type="text" id="message" placeholder="채팅내용"/> <br/>
+        <button>채팅</button>
+    </form>
+    <script>
+
+        const chatF = document.querySelector("#chat");
+        const ul = document.querySelector("ul");
+        const socket = io();
+        //io함수가 클라이언트 소켓 생성 및 연결 설정까지 해준다.
+
+        // socket.emit("new_message", "hello, Server", (res) => {
+        //     console.log(res);
+        // });
+
+        chatF.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const user = chatF.querySelector('#user');
+            const message = chatF.querySelector("#message");
+            socket.emit("new_message", {name: user.value, message: message.value}, (res) => {
+                console.log('res', res);
+                const li = document.createElement('li');
+                li.textContent = `${res.name} : ${res.message}`;
+                ul.appendChild(li);
+
+            });
+
+        })
+    </script>
+</body>
+</html> -->
+
+<!-- ▼ 실습 1 -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <div style="display: flex;">
+        <form id="ch1">
+            <button>hello</button>
+        </form><br>
+        <form id="ch2">
+            <button>study</button>
+        </form><br>
+        <form id="ch3">
+            <button>bye</button>
+        </form>
+    </div>
+
+
+    <ul style="list-style: none;"></ul>
+
+    <script>
+        const ch1 = document.querySelector("#ch1");
+        const ch2 = document.querySelector("#ch2");
+        const ch3 = document.querySelector("#ch3");
+        const ul = document.querySelector("ul");
+        const socket = io();
+
+        const hello = 'hello';
+
+        ch1.addEventListener('submit', (event) => {
+            event.preventDefault();
+            socket.emit("new_message", {client : hello}, (res) => {
+                console.log('res', res);
+                const li = document.createElement('li');
+                // li.textContent = `${res.name} : ${res.message}`;
+                ul.innerHTML = 
+                `
+                <li>${res.client} : 안녕하세요.</li>
+                `   
+
+            });
+
+        });
+
+
+        ch2.addEventListener('submit', (event) => {
+            event.preventDefault();
+            socket.emit("new_message", {name: 'study', message: '공부합시다!'}, (res) => {
+                console.log('res', res);
+                const li = document.createElement('li');
+                ul.innerHTML = 
+                `
+                <li>${res.name} : ${res.message}</li>
+                `
+
+            });
+
+        });
+
+        ch3.addEventListener('submit', (event) => {
+            event.preventDefault();
+            socket.emit("new_message", {name: 'bye', message: '잘가~~'}, (res) => {
+                console.log('res', res);
+                const li = document.createElement('li');
+                ul.innerHTML = 
+                `
+                <li>${res.name} : ${res.message}</li>
+                `
+
+            });
+
+        });
+
+    </script>
+</body>
+</html> -->
+
+

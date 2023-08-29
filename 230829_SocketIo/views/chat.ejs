@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+    <style>
+        #spa{
+            width: 300px;
+            height: 500px;
+            background-color: skyblue;
+        }
+
+        #p1{
+            position: absolute;
+            left: 6%;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="spa"></div>
+    <form id="chat">
+        <input type="text" id="message" placeholder="채팅내용">
+        <button>채팅</button>
+    </form>
+
+    <script>
+        
+
+        const chatF = document.querySelector('#chat');
+
+        const socket = io();
+        const userN = prompt("채팅방을 입력하세요: ");
+        const spa = document.querySelector("#spa");
+
+        //이름을 입력할 경울 체팅방으로 들어가도록 할 예정
+        socket.emit('join', userN );
+
+        const p1 = document.createElement('p');
+        p1.setAttribute("id", "p1");
+        p1.textContent = '사용자님 환영합니다';
+        spa.appendChild(p1);
+
+        socket.on('userjoin', (message)=>{
+            console.log(message);
+        });
+        //이벤트를 생성했을때 무조건 반대쪽도 만들어줘야한다.
+
+        socket.on('sendM', (message)=>{
+            const p = document.createElement('p');
+            p.textContent = message;
+            spa.appendChild(p);
+
+        })
+
+        chatF.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const msg = chatF.querySelector('#message');
+            
+            socket.emit('message', msg.value);
+            msg.value ='';
+
+        });
+
+
+    </script>
+</body>
+</html>
