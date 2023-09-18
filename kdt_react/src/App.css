@@ -1,0 +1,61 @@
+.test{
+    background-color: blanchedalmond;
+    color: orange;
+    font-size: 24px;
+    margin: auto;
+    text-align: center;
+}
+
+.input{
+    position: relative;
+    top: 10px;
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.big{
+    display: flex;
+}
+
+.red{
+    background-color: red;
+    width: 100px;
+    height: 200px;
+}
+
+.oran{
+    background-color: orange;
+    width: 100px;
+    height: 250px;
+}
+
+.yell{
+    background-color: yellow;
+    width: 100px;
+    height: 300px;
+}
+
+.green{
+    background-color: green;
+    width: 100px;
+    height: 350px;
+}
+
+.blue{
+    background-color: blue;
+    width: 100px;
+    height: 400px;
+}
+
+.na{
+    background-color: navy;
+    width: 100px;
+    height: 450px;
+}
+
+.pu{
+    background-color: purple;
+    width: 100px;
+    height: 500px;
+}

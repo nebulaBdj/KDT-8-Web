@@ -21,6 +21,8 @@ app.get("/", (req, res) => {
 
 io.on("connection", (socket) => {
   console.log("socket.id : ", socket.id);
+  //소켓은 접속헌 웹페이지 io는 접속해 있는 모든 웹페이지
+  // 웹페이지 접속이 되면 각각 고유한 id값이 생긴다.
 
   socket.on("new_message", (arg, cb) => {
     console.log(arg);

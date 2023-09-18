@@ -23,7 +23,7 @@ app.get("/chat", (req, res)=> {
 
 //소켓 // 소켓은 객체 형태로 온다. > 원하는 값을 추가로 넣을 수 있다.
 io.on("connection", (socket) => {
-    console.log('조인 전', socket.rooms);
+    // console.log('조인 전', socket.rooms);
     socket.on('join', (userN)=>{
         socket.room = userN; 
         //콜백 함수 에서 뿐만 아니라 전체에서 사용할려면 위와 같은 방법을 해줘야 전체에서 모두 사용 가능하다
@@ -39,11 +39,13 @@ io.on("connection", (socket) => {
         // io.to('chatRoom').emit("userjoin", `${userN}님이 입장하셨습니다`);
         
         //braodcast 포함 시 나를 제외한 모든 사용자에게 메세지 전달 
-        socket.broadcast.to(userN).emit('userjoin', '어서오세요');
+        io.to(userN).emit('userjoin', socket.id);
     });
 
-    socket.on("message", (message) => {//클라이언트에서 받은 메세지
-        io.to(socket.room).emit('sendM', `${message}`);
+    socket.on("message", (id) => {//클라이언트에서 받은 메세지
+        console.log('메세지 이벤트', id.msg);
+        console.log('메세지 주인', id.id);
+        io.to(socket.room).emit('sendM', {id : id.id, msg : id.msg});
         // 클라이언트로 다시 보내는 메세지 따라서 클라이언트에서 또 받아줘야한다.
     })
 

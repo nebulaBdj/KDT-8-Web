@@ -7,8 +7,8 @@
     <title>Document</title>
     <style>
         #spa{
-            width: 300px;
-            height: 500px;
+            width: 400px;
+            height: 600px;
             background-color: skyblue;
         }
 
@@ -16,6 +16,11 @@
             position: absolute;
             left: 6%;
             color: white;
+        }
+
+        p{
+            border-radius: 2px;
+            width: 68px;
         }
     </style>
 </head>
@@ -30,27 +35,35 @@
         
 
         const chatF = document.querySelector('#chat');
-
         const socket = io();
         const userN = prompt("채팅방을 입력하세요: ");
         const spa = document.querySelector("#spa");
+        const idList = [];
 
         //이름을 입력할 경울 체팅방으로 들어가도록 할 예정
         socket.emit('join', userN );
 
-        const p1 = document.createElement('p');
-        p1.setAttribute("id", "p1");
-        p1.textContent = '사용자님 환영합니다';
-        spa.appendChild(p1);
+        // const p1 = document.createElement('p');
+        // p1.setAttribute("id", "p1");
+        // p1.textContent = '사용자님 환영합니다';
+        // spa.append(p1);
 
         socket.on('userjoin', (message)=>{
-            console.log(message);
+            console.log( '소켓 아이디' ,message);
+            idList.push(message);
+            console.log(idList);
         });
         //이벤트를 생성했을때 무조건 반대쪽도 만들어줘야한다.
 
-        socket.on('sendM', (message)=>{
+        socket.on('sendM', (id)=>{
             const p = document.createElement('p');
-            p.textContent = message;
+            p.textContent = id.msg;
+            p.style.marginLeft = '2%'
+            p.style.backgroundColor = 'white'
+            if(id.id==idList[0]){
+                p.style.marginLeft = '82%'
+                p.style.backgroundColor = 'yellow'
+            }
             spa.appendChild(p);
 
         })
@@ -59,7 +72,7 @@
             e.preventDefault();
             const msg = chatF.querySelector('#message');
             
-            socket.emit('message', msg.value);
+            socket.emit('message', {id : idList[0], msg : msg.value});
             msg.value ='';
 
         });
