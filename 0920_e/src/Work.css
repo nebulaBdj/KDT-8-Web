@@ -1,0 +1,11 @@
+.red{
+    color: red;
+}
+
+.bittable th{
+    border: 1px solid black;
+}
+
+.bittable td{
+    border: 1px solid black;
+}
