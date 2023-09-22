@@ -39,7 +39,6 @@ class Work extends Component {
 
 
     sech () {
-        const tbody = document.querySelector('.table');
         const sechKey = document.querySelector('.sechKey').value;
         const select = document.querySelector('.select');
         let selectKey = select.value;
@@ -71,26 +70,92 @@ class Work extends Component {
         console.log('선택된 셀렉트 옵션',selectKey);
         console.log('현재 스테이트 값', this.state.number-1);
 
+        let arr1 = [];
+        let arr2 = [];
+        let head;
+        
         if(selectKey === '제목'){
-            let arr1 = arr.filter((a) => {
+            arr1 = arr.filter((a) => {
                 return a.title.includes(`${sechKey}`);
             })
 
+            head = true;
+
             console.log(arr1);
+            console.log(arr1.length);
+            console.log(arr1[0].wname);
+            
             
         } else if(selectKey === '작성자'){
-            let arr2 = arr.filter((a) => {
+            arr2 = arr.filter((a) => {
                 return a.wname.includes(`${sechKey}`);
             })
 
+            head = false;
             console.log(arr2);
+
+            
         }
 
-        // arr.filter((title, name) => {
-        //     return title.includes()
-        // })
-        
 
+        // console.log(head);
+        // console.log('밖 배열',arr1);
+        // console.log('밖 배열',arr2);
+        // console.log('밖 배열 길이',arr1.length);
+        // console.log('밖 배열 길이',arr2.length);
+        // console.log('밖 배열 길이',arr2[0].num);
+        // console.log('밖 배열 길이',arr2[0].title);
+        // console.log('밖 배열 길이',arr2[0].wname);
+
+
+        let table2;
+        let tr = document.createElement('tr');
+
+        if(head) {
+            for(let i=0; i<arr1.length; i++){
+                table2 = document.querySelector('divdiv');
+                const td_num = document.createElement('td');
+                const td_tit = document.createElement('td');
+                const td_name = document.createElement('td');
+    
+                td_num.innerText = `${arr1[i].num}`
+                td_tit.innerText = `${arr1[i].title}`
+                td_name.innerText = `${arr1[i].wname}`
+
+                console.log(td_num);
+                console.log(td_tit);
+                console.log(td_name);
+
+                tr.appendChild(td_num);
+                tr.appendChild(td_tit);
+                tr.appendChild(td_name);
+
+                console.log(tr);
+                
+            }
+        } else {
+            for(let i=0; i<arr2.length; i++){
+                table2 = document.querySelector('divdiv');
+                const td_num = document.createElement('td');
+                const td_tit = document.createElement('td');
+                const td_name = document.createElement('td');
+    
+                td_num.innerText = `${arr2[i].num}`
+                td_tit.innerText = `${arr2[i].title}`
+                td_name.innerText = `${arr2[i].wname}`
+
+                console.log(td_num);
+                console.log(td_tit);
+                console.log(td_name);
+
+                tr.appendChild(td_num);
+                tr.appendChild(td_tit);
+                tr.appendChild(td_name);
+
+                console.log(tr);
+                
+            }
+        }
 
     }
 
@@ -161,9 +226,26 @@ class Work extends Component {
                         </tr>
                     </thead>
                     <tbody className="table">
-
+            
                     </tbody>
                 </table>
+
+                <h3>검색 결과</h3>
+                <div>
+                <table className="ttable">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                        </tr>
+                    </thead>
+                    <tbody className="divdiv">
+                        {this.tr}
+                    </tbody>
+                </table>
+
+                </div>
             </div>
         )
     }

@@ -9,3 +9,15 @@
 .bittable td{
     border: 1px solid black;
 }
+
+.ttable th{
+    border: 1px solid black;
+}
+
+.ttable td{
+    border: 1px solid black;
+}
+
+.ttable {
+    border: 1px solid black;
+}

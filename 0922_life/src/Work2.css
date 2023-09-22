@@ -1,0 +1,22 @@
+.Work2_title{
+    height: 80px;
+    background-color: cornflowerblue;
+}
+
+.Work2_title h1{
+    text-align: center;
+    color: aliceblue;
+    position: relative;
+    top: 18px;
+}
+
+.nemo{
+    background-color: powderblue;
+    height: 80%;
+    width: 80%;
+    margin: auto;
+}
+
+.nemo span {
+    color: blue;
+}
