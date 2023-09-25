@@ -1,0 +1,40 @@
+//_utils.scss
+//scss파일명에 _ 를 붙여서 작성하면 파일 단위로 분리되어 컴파일 되지 않는다.
+//파일 분리
+//보통 컴파일 할 필요가 없는 변수를 넣는다
+
+$color-red: red;
+$color-orn:orange;
+$color-ye: yellow;
+$color-gr: green;
+$color-bl: blue;
+$color-na: navy;
+$color-pu: purple;
+
+$color-pink: pink;
+$color-yellow: yellow;
+$color-green: green;
+
+@mixin ani($name ,$rot){
+
+    @keyframes #{$name} {
+        0% {left: 0px; top: 0px;}
+        25% {left: $rot; top: 0px;}
+        50% {left: $rot; top: $rot;}
+        75% {left: 0px; top: $rot;}
+        100% {left: 0px; top: 0px;}
+
+    }
+
+}
+
+
+@mixin box($size) {
+    width: $size;
+    height: $size;
+}
+
+@mixin circle($size){
+    width: $size;
+    height: $size;
+}
