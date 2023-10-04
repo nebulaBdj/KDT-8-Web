@@ -12,7 +12,7 @@ import Comment from './12Router/Comment';
 
 //실습
 import Student from './12Router/Student';
-import Codingon from './12Router/condingon';
+import Codingon from './12Router/Condingon';
 import Search from './12Router/Sech';
 
 // 옛버전
@@ -39,7 +39,9 @@ import Search from './12Router/Sech';
 const Router = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
+        //element: <App />, 이 상태로 App.js에 헤더를 놓고 하면 
+        //헤더는 고정된 채로 밑에 자식노드로 내용이 생긴다.
+        element: <Header />,
         children: [
             // {
             //     path:'',

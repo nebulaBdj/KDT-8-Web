@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+            margin: auto;
+        }
+
+        tr {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+            /* width: 100px; */
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        .tr0 td{
+            text-align: center;
+        }
+
+        .tr1 td{
+            height: 100px;
+            width: 150px;
+        }
+
+        .tr2 td{
+            text-align: center;
+        }
+
+        .tr3 td{
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>학생 활동 기안지</h1>
+    <table style="width: 1050px;">
+        <tr>
+            <td style="text-align: center;">문서분류<br> 번호</td>
+            <td></td>
+            <td style="text-align: center;">기안자</td>
+            <td colspan="2">
+                동아리 명: <br>
+                학과, 학년: <br>
+                성 명: <br>
+            </td>
+            <td style="text-align: center;">기안 연월일</td>
+            <td style="text-align: center;">2023. 9. 18.</td>
+        </tr>
+        <tr class="tr0">
+            <td>학생과 담당</td>
+            <td>학생계장</td>
+            <td>학생과장</td>
+            <td>부처장</td>
+            <td>처장</td>
+            <td>부총장</td>
+            <td>총장</td>
+        </tr>
+        <tr class="tr1"><!-- tr1이라는 이름을 정해줘서 스타일에서 적용할때 사용 -->
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>201 . . .</td>
+            <td>201 . . .</td>
+            <td>201 . . .</td>
+            <td>201 . . .</td>
+            <td>201 . . .</td>
+            <td>201 . . .</td>
+            <td>201 . . .</td>
+        </tr>
+    </table>
+    <table style="width: 1050px;">
+        <tr class="tr2">
+            <td rowspan="2" style="width: 10px;">동아리연합회</td>
+            <td style="width: 117px;">분과장</td>
+            <td style="width: 117px;">사무국장</td>
+            <td style="width: 117px;">회장</td>
+            <td rowspan="2" style="width: 10px;"> 확인 . 협조처</td>
+            <td style="width: 93px;">지도교수</td>
+            <td style="width: 93px;">총무과</td>
+            <td style="width: 93px;">기구실</td>
+            <td style="width: 93px;"></td>
+            <td style="width: 93px;"></td>
+        </tr>
+        <tr class="tr3"><!-- 위랑 동일하게 tr2라는 이름을 지정해줘서 스타일 줄때 불러서 사용  -->
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>
