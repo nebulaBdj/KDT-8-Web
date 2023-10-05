@@ -10,7 +10,7 @@ export default function Todolist () {
         const tododata = async () => {
             const res = await axios({
                 method: "GET",
-                url: "http://localhost:8080/todos"
+                url: "/todos"
             });
             console.log(res.data.data);
             setTodos(res.data.data);
@@ -25,7 +25,7 @@ export default function Todolist () {
         
         const res = await axios({
             method: "POST",
-            url: "http://localhost:8080/todos",
+            url: "/todos",
             data: {
                 title: update_data,
                 done: 0, 
