@@ -4,13 +4,13 @@ const controller = require('../controller/Ctodo');
 const path = require('path');
 
 
-router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+// router.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// });
 
-router.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+// router.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// });
 
 router.get('/todos', controller.get_todo);
 router.post('/todos', controller.post_todo);

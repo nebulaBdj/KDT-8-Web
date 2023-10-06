@@ -81,6 +81,6 @@ const countReducer = (state = [], action) => {
     case ADD_TODO :
       return [...state, input];
     case DEL_TODO :
-      return []
+      return state.filter
   }
 }
