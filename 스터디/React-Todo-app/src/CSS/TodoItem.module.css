@@ -1,0 +1,15 @@
+.todoItem-container {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 0.6rem;
+    background-color: aliceblue;
+    border-radius: 6px;
+    border-color: rgb(216, 222, 228);
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: rgba(140, 149, 159, 0.15) 0px 3px 6px;
+}
+.todoItem-container-click {
+    border-width: 1.5px;
+    border-color: rgb(172, 181, 190);
+}
