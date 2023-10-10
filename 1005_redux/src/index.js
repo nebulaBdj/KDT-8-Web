@@ -67,20 +67,39 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//과제
-import { createStore } from 'redux';
+//과제 1
+// import { createStore } from 'redux';
 
-const input = document.querySelector('#text').value;
-const ul = document.querySelector('#ul');
+// const input = document.querySelector('#text').value;
+// const ul = document.querySelector('#ul');
 
-const ADD_TODO = 'ADD_TODO';
-const DEL_TODO = 'DEL_TODO';
+// const ADD_TODO = 'ADD_TODO';
+// const DEL_TODO = 'DEL_TODO';
 
-const countReducer = (state = [], action) => {
-  switch (action.type) {
-    case ADD_TODO :
-      return [...state, input];
-    case DEL_TODO :
-      return state.filter
-  }
-}
+// const countReducer = (state = [], action) => {
+//   switch (action.type) {
+//     case ADD_TODO :
+//       return [...state, input];
+//     case DEL_TODO :
+//       return state.filter(el => el.id !== action.id);
+//     default:
+//       return state
+//   }
+// }
+
+
+//과제 2
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { Provider } from 'react-redux';
+import store from './cartstore';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </React.StrictMode>
+);

@@ -10,10 +10,10 @@ export default function Todolist () {
         const tododata = async () => {
             const res = await axios({
                 method: "GET",
-                url: "/todos"
+                url: "http://localhost:8080/todos"
             });
-            console.log(res.data.data);
-            setTodos(res.data.data);
+            console.log(res.data);
+            setTodos(res.data);
             setLo(false);
         }
         tododata();

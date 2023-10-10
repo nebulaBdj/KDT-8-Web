@@ -1,4 +1,4 @@
-import { useRef} from "react"
+import { useRef } from "react"
 import { addTodo, deleteItem } from "../store/todo"
 import { setTodoState } from "../store/clickedItem"
 import { useDispatch, useSelector } from "react-redux"

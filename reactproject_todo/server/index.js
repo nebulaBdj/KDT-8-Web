@@ -3,7 +3,9 @@ const app = express();
 const PORT = 8080;
 const db = require('./models');
 const path = require('path');
+const cors = require('cors')
 
+app.use(cors())
 // app.set('view engine', 'ejs'); //ejs를 사용할 때 설정
 
 //body-parser
