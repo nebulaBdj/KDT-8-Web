@@ -1,11 +1,16 @@
 import Cart from "./Cart";
 import ProductList from "./ProductList";
+import Todolist from "./TodoList";
+import TodoList_list from "./TodoList_list";
 
 function App() {
   return (
     <>
-    <ProductList />
-    <Cart />
+    {/* <ProductList />
+    <Cart /> */}
+    <Todolist />
+    <TodoList_list />    
+
     </>
   );
 }

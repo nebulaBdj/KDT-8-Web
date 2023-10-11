@@ -6,9 +6,11 @@ export const DEL_TODO = 'DEL_TODO';
 const reducer = (state = [], action) => {
     switch(action.type) {
         case ADD_TODO:
-            return [...state, 'ddd'];
+            console.log('add에서 받은 놈', action.todoObj);
+            return [...state, action.todoObj];
         case DEL_TODO:
-            return state.filter(el => el !== 'ddd');
+            console.log('del에서 받은 놈', action.id);
+            return state.filter(el => el.id !== action.id);
         default:
             return state;
     }
