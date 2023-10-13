@@ -89,15 +89,23 @@ const patch_todo = async (req, res) => {
 
     console.log('받은 데이터 객체화 완료', update_data);
 
-    const update_title = update_data.title;
-    const update_done = update_data.done;
+    const update_title = req.body.title;
+    const update_done = req.body.done;
 
-    await models.todo.update({
-        title : update_title,
-        done : update_done,
-    },
-    { where :  { id : list_id},}
-    );
+
+    try {
+        await models.todo.update({
+            title : update_title,
+            done : update_done,
+        },
+        { where :  { id : list_id},}
+        );        
+    } catch (error) {
+        console.log('에러임');
+    }
+
+
+    res.json({result : true});
 
 }
 

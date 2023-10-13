@@ -55,7 +55,10 @@ export default function Todolist () {
                 title : edit_data,
                 done : 0,
             }
-        })
+        });
+
+        console.log('되나?')
+        window.location.reload();
 
            
     };
