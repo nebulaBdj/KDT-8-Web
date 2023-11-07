@@ -56,5 +56,5 @@ exports.login = async (req, res) => {
 }
 
 const conpareBcryptP = (pw, dbpw) => {
-    return bcrypt.compare(pw, dapw);
+    return bcrypt.compare(pw, dppw);
 }
